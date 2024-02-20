@@ -54,8 +54,41 @@ const createCraftIngredients = (completion) => {
   });
 };
 
+// Setter Functions
+export const setCrafters = (id) => {
+  applicationState.craftTypes = id
+  console.log(applicationState)
+}
+
+export const setCraftRequests = async (id) => {
+  const craftingListResponse = await fetch ("http://localhost:8088/craftRequests?_expand=craftType")
+  const craftingListPromise = await craftingListResponse.json()
+
+  console.log(craftingListPromise)
+
+  for (const object of craftingListPromise) {
+    if (object.id === id) {
+      console.log(object.craftType.id)
+    }
+  }
+
+  //let craftingType = craftingListPromise.find(type => {type.id===id})
+
+  // console.log(craftingType)
+
+  // applicationState.craftTypes = craftingListPromise.craftType.id
+  // console.log(applicationState)
+  
+  // applicationState.craftRequests = id
+  //console.log(applicationState)
+}
+
 export const setIngredients = (id) => {
-  // Step 1: Use the has() method to determine if the Set has the ingredient
-  // Step 2: If it does, remove it with delete() method
-  // Step 3: If it does not, add it with add() method
+    if (applicationState.userChoices.chosenIngredients.has(id)) {
+      applicationState.userChoices.chosenIngredients.delete(id)
+    } 
+    else {
+      applicationState.userChoices.chosenIngredients.add(id)
+    }
+    console.log(applicationState)
 };
