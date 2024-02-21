@@ -10,6 +10,7 @@
 */
 
 import { GnomeMercy } from "./GnomeMercy.js";
+import { RequestForm } from "./RequestForm.js";
 
 const mainContainer = document.querySelector("#container");
 
@@ -17,6 +18,7 @@ const mainContainer = document.querySelector("#container");
 
 const render = async () => {
     const gnomeHTML = await GnomeMercy()
+    const requestFormHTML = RequestForm()
     mainContainer.innerHTML = gnomeHTML
     
   /*
@@ -30,3 +32,4 @@ const render = async () => {
 render();
 
 // Listen for state changes and invoke render() when it does
+document.addEventListener("requestSaved",requestFormHTML)

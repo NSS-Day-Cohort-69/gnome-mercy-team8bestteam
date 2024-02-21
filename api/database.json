@@ -136,6 +136,42 @@
       "intendedUse": "Enable someone to hate another person",
       "craftTypeId": 2,
       "id": 8
+    },
+    {
+      "name": "",
+      "intendedUse": "",
+      "craftTypeId": 0,
+      "id": 9
+    },
+    {
+      "name": "",
+      "intendedUse": "",
+      "craftTypeId": 0,
+      "id": 10
+    },
+    {
+      "name": "",
+      "intendedUse": "",
+      "craftTypeId": 0,
+      "id": 11
+    },
+    {
+      "name": "",
+      "intendedUse": "",
+      "craftTypeId": 0,
+      "id": 12
+    },
+    {
+      "name": "",
+      "intendedUse": "",
+      "craftTypeId": 0,
+      "id": 13
+    },
+    {
+      "name": "",
+      "intendedUse": "",
+      "craftTypeId": 0,
+      "id": 14
     }
   ],
   "completions": [
