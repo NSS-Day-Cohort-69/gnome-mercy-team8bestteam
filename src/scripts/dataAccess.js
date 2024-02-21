@@ -71,10 +71,10 @@ export const setCraftRequests = async (id) => {
       console.log(object.craftType.id)
     }
   }
+  debugger
+  let craftingType = craftingListPromise.find(type => type.id===id)
 
-  //let craftingType = craftingListPromise.find(type => {type.id===id})
-
-  // console.log(craftingType)
+  console.log(craftingType)
 
   // applicationState.craftTypes = craftingListPromise.craftType.id
   // console.log(applicationState)
