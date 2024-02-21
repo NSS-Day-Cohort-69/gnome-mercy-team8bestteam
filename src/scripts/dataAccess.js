@@ -9,7 +9,11 @@ const API = "https://uqyoy.sse.codesandbox.io/api";
 
 const applicationState = {
   craftTypes: [],
-  craftRequests: [],
+  craftRequests: {
+    "name":"",
+    "intendedUse":"",
+    "craftTypeId":0
+  },
   crafters: [],
   ingredients: [],
   userChoices: {
@@ -18,6 +22,26 @@ const applicationState = {
     requestId: 0
   }
 };
+
+export const createCraftRequest=async()=>{
+   applicationState.craftRequests={
+    "name":document.getElementById("name").value,
+    "intendedUse": document.getElementById("purpose").value,
+    "craftTypeId":document.getElementById("type").value
+    }
+
+  const postOptions={
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(applicationState.craftRequests)
+  }
+  const response=await fetch("http://localhost:8088/craftRequests",postOptions)
+
+  const customEventdiv1=new CustomEvent("requestSaved")
+  document.dispatchEvent(customEventdiv1)
+}
 
 /* 
   Once a new craft completion has been saved in the API,
@@ -55,10 +79,10 @@ const createCraftIngredients = (completion) => {
 };
 
 // Setter Functions
-export const setCrafters = (id) => {
-  applicationState.craftTypes = id
-  console.log(applicationState)
-}
+// export const setCrafters = (id) => {
+//   applicationState.craftTypes = id
+//   console.log(applicationState)
+// }
 
 export const setCraftRequests = async (id) => {
   const craftingListResponse = await fetch ("http://localhost:8088/craftRequests?_expand=craftType")
@@ -74,7 +98,9 @@ export const setCraftRequests = async (id) => {
   debugger
   let craftingType = craftingListPromise.find(type => type.id===id)
 
-  console.log(craftingType)
+  //let craftingType = craftingListPromise?.find(type => {type.id===id})
+
+  // console.log(craftingType)
 
   // applicationState.craftTypes = craftingListPromise.craftType.id
   // console.log(applicationState)

@@ -4,16 +4,22 @@
     is clicked, POST a new request to the API.
 */
 
+import { createCraftRequest } from "./dataAccess.js";
+
+
+
 document.addEventListener("click", (clickEvt) => {
   if (clickEvt.target.id === "submitRequest") {
-  }
-});
+    createCraftRequest()
+}});
+
+
 
 export const RequestForm = () => {
   let html = `
     <div class="field flex column section">
      <label class="label" for="name">Name</label>
-     <input type="text" id="name" class="input">
+     <input type="text" data-name="nameInput" id="name" class="input">
 
      <label class="label" for="purpose">Purpose</label>
      <input type="text" id="purpose" class="input">
