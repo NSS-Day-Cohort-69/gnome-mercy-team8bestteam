@@ -16,10 +16,11 @@ const mainContainer = document.querySelector("#container");
 
 
 
-const render = async () => {
+export const render = async () => {
     const gnomeHTML = await GnomeMercy()
-    const requestFormHTML = RequestForm()
+    console.log("rendering")
     mainContainer.innerHTML = gnomeHTML
+    
     
   /*
         Fetch all of the database so that it's stored in 
@@ -32,4 +33,4 @@ const render = async () => {
 render();
 
 // Listen for state changes and invoke render() when it does
-document.addEventListener("requestSaved",requestFormHTML)
+//document.addEventListener("requestSaved",render())

@@ -12,7 +12,7 @@ import { buildFinishBtn } from "./CompleteButton.js";
 // import { completions } from "./Completions.js";
 
 export const GnomeMercy = async () => {
-  const requestFormHTML = RequestForm()
+  const requestFormHTML = await RequestForm()
   const craftRequestsHTML = await craftRequests()
   const craftersHTML = await Crafters()
   const ingredientHTML = await ingredientList()

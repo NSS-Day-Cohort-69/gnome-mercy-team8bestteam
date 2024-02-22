@@ -4,15 +4,16 @@
         Manage application state and provide functions to change permanent
         state with fetch() call to the API.
 */
+import { render } from "./main.js";
 
 const API = "https://uqyoy.sse.codesandbox.io/api";
 
 const applicationState = {
   craftTypes: [],
   craftRequests: {
-    "name":"",
-    "intendedUse":"",
-    "craftTypeId":0
+    name: "",
+    intendedUse: "",
+    craftTypeId: 0
   },
   crafters: [],
   ingredients: [],
@@ -23,24 +24,26 @@ const applicationState = {
   }
 };
 
-export const createCraftRequest=async()=>{
-   applicationState.craftRequests={
-    "name":document.getElementById("name").value,
-    "intendedUse": document.getElementById("purpose").value,
-    "craftTypeId":document.getElementById("type").value
-    }
+export const createCraftRequest = async () => {
+  applicationState.craftRequests = {
+    name: document.getElementById("name").value,
+    intendedUse: document.getElementById("purpose").value,
+    craftTypeId: parseInt(document.getElementById("type").value)
 
-  const postOptions={
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json"
-    },
-    body:JSON.stringify(applicationState.craftRequests)
   }
-  const response=await fetch("http://localhost:8088/craftRequests",postOptions)
 
-  const customEventdiv1=new CustomEvent("requestSaved")
-  document.dispatchEvent(customEventdiv1)
+  const postOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(applicationState.craftRequests)
+  }
+  const response = await fetch("http://localhost:8088/craftRequests", postOptions)
+  await render()
+
+  // const customEventdiv1=new CustomEvent("requestSaved")
+  // document.dispatchEvent(customEventdiv1)
 }
 
 /* 
@@ -85,18 +88,18 @@ const createCraftIngredients = (completion) => {
 // }
 
 export const setCraftRequests = async (id) => {
-  const craftingListResponse = await fetch ("http://localhost:8088/craftRequests?_expand=craftType")
+  const craftingListResponse = await fetch("http://localhost:8088/craftRequests?_expand=craftType")
   const craftingListPromise = await craftingListResponse.json()
 
   console.log(craftingListPromise)
-
+  debugger
   for (const object of craftingListPromise) {
     if (object.id === id) {
       console.log(object.craftType.id)
     }
   }
   debugger
-  let craftingType = craftingListPromise.find(type => type.id===id)
+  let craftingType = craftingListPromise.find(type => type.id === id)
 
   //let craftingType = craftingListPromise?.find(type => {type.id===id})
 
@@ -104,17 +107,17 @@ export const setCraftRequests = async (id) => {
 
   // applicationState.craftTypes = craftingListPromise.craftType.id
   // console.log(applicationState)
-  
+
   // applicationState.craftRequests = id
   //console.log(applicationState)
 }
 
 export const setIngredients = (id) => {
-    if (applicationState.userChoices.chosenIngredients.has(id)) {
-      applicationState.userChoices.chosenIngredients.delete(id)
-    } 
-    else {
-      applicationState.userChoices.chosenIngredients.add(id)
-    }
-    console.log(applicationState)
+  if (applicationState.userChoices.chosenIngredients.has(id)) {
+    applicationState.userChoices.chosenIngredients.delete(id)
+  }
+  else {
+    applicationState.userChoices.chosenIngredients.add(id)
+  }
+  console.log(applicationState)
 };

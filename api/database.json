@@ -96,82 +96,10 @@
       "id": 1
     },
     {
-      "name": "Flask of Fetches",
-      "intendedUse": "Brings the user what she asks for.",
-      "craftTypeId": 1,
+      "name": "testing ",
+      "intendedUse": "testing",
+      "craftTypeId": 2,
       "id": 2
-    },
-    {
-      "name": "Then Success Elixir",
-      "intendedUse": "Alleviates broken promises.",
-      "craftTypeId": 2,
-      "id": 3
-    },
-    {
-      "name": "Love Potion",
-      "intendedUse": "For loooove",
-      "craftTypeId": 1,
-      "id": 4
-    },
-    {
-      "name": "Beautification",
-      "intendedUse": "To make everyone around me pretty",
-      "craftTypeId": 2,
-      "id": 5
-    },
-    {
-      "name": "Ugly Potion",
-      "intendedUse": "Causes the ugly",
-      "craftTypeId": 1,
-      "id": 6
-    },
-    {
-      "name": "Elixir of Life",
-      "intendedUse": "My grandma needs a few extra years",
-      "craftTypeId": 2,
-      "id": 7
-    },
-    {
-      "name": "Lovesick Elixir of Love",
-      "intendedUse": "Enable someone to hate another person",
-      "craftTypeId": 2,
-      "id": 8
-    },
-    {
-      "name": "",
-      "intendedUse": "",
-      "craftTypeId": 0,
-      "id": 9
-    },
-    {
-      "name": "",
-      "intendedUse": "",
-      "craftTypeId": 0,
-      "id": 10
-    },
-    {
-      "name": "",
-      "intendedUse": "",
-      "craftTypeId": 0,
-      "id": 11
-    },
-    {
-      "name": "",
-      "intendedUse": "",
-      "craftTypeId": 0,
-      "id": 12
-    },
-    {
-      "name": "",
-      "intendedUse": "",
-      "craftTypeId": 0,
-      "id": 13
-    },
-    {
-      "name": "",
-      "intendedUse": "",
-      "craftTypeId": 0,
-      "id": 14
     }
   ],
   "completions": [
